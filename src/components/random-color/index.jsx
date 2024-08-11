@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function RandomColor() {
 
@@ -31,6 +31,9 @@ export default function RandomColor() {
     setColor(rgbCode);
   }
 
+  useEffect(() => {
+    colorType === 'hex' ? handleGenerateHexColor() : handleGenerateRgbColor();
+  }, [colorType]);
 
   return (
     <div style={{width: '100vw', height: '100vh', background: color}}>
